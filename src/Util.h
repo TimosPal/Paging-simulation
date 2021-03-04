@@ -15,8 +15,8 @@
 #define PID1 0
 #define PID2 1
 
-#define TRACE_FILE1_PATH "./bzip.trace"
-#define TRACE_FILE2_PATH "./gcc.trace"
+#define TRACE_FILE1_PATH "../bzip.trace"
+#define TRACE_FILE2_PATH "../gcc.trace"
 
 #define IF_ERROR_MSG(x,msg) { if(x) {fprintf(stderr,"ERROR : %s.\n",msg); exit(EXIT_ERROR_CODE); } }
 
