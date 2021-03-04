@@ -6,26 +6,26 @@ all: prog
 prog: ArgUtil.o Hash.o LinkedList.o StringUtil.o Trace.o Hashes.o main.o
 	$(CC) -g ArgUtil.o Hash.o LinkedList.o StringUtil.o Trace.o Hashes.o main.o -lm -o prog
 
-main.o: main.c
-	$(CC) $(FLAGS) main.c
+main.o: ./src/main.c
+	$(CC) $(FLAGS) ./src/main.c
 
-Hashes.o: Hashes.c
-	$(CC) $(FLAGS) Hashes.c
+Hashes.o: ./src/Hashes.c
+	$(CC) $(FLAGS) ./src/Hashes.c
 
-ArgUtil.o: ArgUtil.c
-	$(CC) $(FLAGS) ArgUtil.c
+ArgUtil.o: ./src/ArgUtil.c
+	$(CC) $(FLAGS) ./src/ArgUtil.c
 
-Hash.o: Hash.c
-	$(CC) $(FLAGS) Hash.c
+Hash.o: ./src/Hash.c
+	$(CC) $(FLAGS) ./src/Hash.c
 
-LinkedList.o: LinkedList.c
-	$(CC) $(FLAGS) LinkedList.c
+LinkedList.o: ./src/LinkedList.c
+	$(CC) $(FLAGS) ./src/LinkedList.c
 
-StringUtil.o: StringUtil.c
-	$(CC) $(FLAGS) StringUtil.c
+StringUtil.o: ./src/StringUtil.c
+	$(CC) $(FLAGS) ./src/StringUtil.c
 
-Trace.o: Trace.c
-	$(CC) $(FLAGS) Trace.c
+Trace.o: ./src/Trace.c
+	$(CC) $(FLAGS) ./src/Trace.c
 
 clean:
 	rm -f *.o prog
