@@ -1,0 +1,32 @@
+#ifndef HASH_H
+#define HASH_H
+
+#include "LinkedList.h"
+
+#include <stdbool.h>
+
+typedef struct Hash {
+    List* buckets;
+
+    unsigned int (*hashFunction)(const void*, unsigned int);
+    bool (*cmpFunction)(void*,void*);
+
+    int bucketSize;
+    bool shouldMallocKeys;
+} Hash;
+
+typedef struct KeyValuePair{
+    void* key;
+    void* value;
+}KeyValuePair;
+
+
+void Hash_Init(Hash* hash, int bucketSize, unsigned int (*hashFunction)(const void*, unsigned int), bool (*cmpFunction)(void*, void*), bool shouldMallocKeys);
+void* Hash_GetValue(Hash hash,void* key,int keySize); //Returns a value based on a key.
+void Hash_FreeValues(Hash hash,void (*freeMethod)(void*));
+void Hash_Destroy(Hash hash);
+void Hash_Remove(Hash* hash, void* key, int keySize);
+bool Hash_Add(Hash* hash,void* key,int keySize,void* value);
+
+
+#endif
