@@ -1,18 +1,18 @@
-### Project description
+# Paging-simulation
 We simulate a paging system. Two processes read two trace files in an alternating pattern. Each processes has its own page table
 (represented as a hash). Two swapping policies can be tested {LRU / Second chance}. The trace files contain addresses and the character
 R if it's a reading request , or W if it's a writing request respectively.
 
 Note : this was a university assignment.
 
-### How to compile:
+## How to compile:
 - make
 
-### Ho to run:
+## Ho to run:
 - ./prog <args>
 - The trace files should be in the parent directory (parametric files not supported).
 
-### Arguments:
+## Arguments:
 
 - a : algorithm LRU / SC
 - f : number of frames
@@ -23,7 +23,7 @@ Example:
 
 ./prog -a LRU -f 1000 -qr 80 -qm 13900
 
-### Implementation details:
+## Implementation details:
 
 A double linkedlist and a hashtable are used.
 The hashtable is used for the Page-table representation whereas the linked list
@@ -39,7 +39,7 @@ comes we only need to see if the entry is contained in the page table , if not a
 
 Finaly a page entry struct represents the info a newly added page contains. It contains its frameNumber (index) in a corresponding array of frames if it a write has occursed (the page is dirty) and if it has been recentlyRead (used by SC)
 
-### Results:
+## Results:
 
 We print the number of Page faults and Disk writes before and after the final cleanup. (when the simulation ends there are still pages in memory). We dont print Disk reads since a page fault is followed by a page read so we know
 page reads == page faults.
